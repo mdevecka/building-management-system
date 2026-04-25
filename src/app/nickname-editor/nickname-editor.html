@@ -1,0 +1,22 @@
+<mat-card formArrayName="nicknames">
+  <mat-card-header>
+    <mat-card-title>Nicknames</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="content">
+    @for (item of nicknames().controls; track item; let i = $index) {
+      <div class="row">
+        <mat-form-field>
+          <mat-label>nickname</mat-label>
+          <input type="text" id="nickname-{{ i }}" matInput [formControlName]="i" spellcheck="false" autocomplete="off">
+          <mat-error>Nickname already taken</mat-error>
+        </mat-form-field>
+        <button mat-icon-button class="delete-button" (click)="removeItem(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    }
+    <div>
+      <button class="add-button" matButton="outlined" (click)="addItem()">add</button>
+    </div>
+  </mat-card-content>
+</mat-card>

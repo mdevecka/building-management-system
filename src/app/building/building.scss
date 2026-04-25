@@ -1,0 +1,12 @@
+:host {
+  .card {
+    width: 500px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .save-button {
+    margin-top: 10px;
+  }
+}

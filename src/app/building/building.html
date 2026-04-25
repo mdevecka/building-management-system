@@ -1,0 +1,22 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title><h3>Building management system</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="form" [formGroup]="form">
+      <mat-form-field>
+        <mat-label>address</mat-label>
+        <textarea matInput formControlName="address"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <nickname-editor [nicknames]="nicknames" [validatorFunc]="buildingApi.isValidNickname">
+      </nickname-editor>
+    </form>
+    <div>
+      <button matButton="filled" class="save-button" [disabled]="!form.valid" (click)="saveForm()">save</button>
+    </div>
+  </mat-card-content>
+</mat-card>
