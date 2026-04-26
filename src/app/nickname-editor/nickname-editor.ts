@@ -14,7 +14,7 @@ export function validateNickname(validator: (name: string) => Observable<boolean
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     if (control.value === '')
       return of(null);
-    return validator(control.value).pipe(map(res => !res ? { error: true } : null));
+    return validator(control.value).pipe(map(res => !res ? { duplicateNickname: true } : null));
   }
 }
 
